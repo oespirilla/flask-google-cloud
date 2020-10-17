@@ -10,17 +10,15 @@ from resources.dog import DogListResource, DogResource
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
-api = Api(app)
 
 
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    return 'Hello RJIT from Cloud!'
+def random_dog(request):
+    return DogResource.get(request)
 
 
-api.add_resource(DogListResource, '/api/v1/dog/list')
-api.add_resource(DogResource, '/api/v1/dog/random')
+def list_dog(request):
+    return DogListResource.get(request)
+
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
