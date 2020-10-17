@@ -26,3 +26,8 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+#### Deploy to Google App Engine Standard
+```bash
+gcloud app deploy app.yaml
+```
