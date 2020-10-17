@@ -32,12 +32,12 @@ python main.py
 ## Deploy to Cloud Run
 First you need to build a container, we are going to use GCR (Google Container Registry) to store our container image:
 
-#### Create Docker Image
-Run the following command replacing the PROJECT_ID variable with your Google Cloud Project Id:
+#### Create a Docker Image
+Run the following command replacing the PROJECT_ID variable with your Google Cloud Project Id, this is going to create a Docker Image based on your Dockerfile:
 ```bash
 gcloud builds submit --tag gcr.io/PROJECT_ID/my-app
 ```
-Ok, now you a container image in your container registry. Let's use this image to deploy it to Cloud Run
+Ok, now you have a Docker image in your container registry. Let's use this image to deploy it to Cloud Run
 ```bash
 gcloud run deploy --image gcr.io/PROJECT_ID/my-app --platform managed
 
