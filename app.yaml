@@ -1,0 +1,17 @@
+runtime: python38
+
+
+#service: service-name (if empty uses 'default')
+
+#instance_class: F2
+
+#env_variables:
+#  YOUR_APP_ENV_VAR: "example-gcs-bucket"
+#  YOUR_APP_ENV_VAR: "example-gcs-bucket"
+
+#automatic_scaling:
+#  min_instances: 5
+#  max_instances: 100
+#
+#manual_scaling:
+#  instances: 5
