@@ -1,6 +1,8 @@
-## Development
 
-##### DEMO Flask application
+
+# DEMO Flask application for Cloud Run
+
+## Local Environment
 
 #### Install virtualenv
 ```bash
@@ -26,3 +28,19 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+## Deploy to Cloud Run
+First you need to build a container, we are going to use GCR (Google Container Registry) to store our container image:
+
+#### Create Docker Image
+Run the following command replacing the PROJECT_ID variable with your Google Cloud Project Id:
+```bash
+gcloud builds submit --tag gcr.io/PROJECT_ID/my-app
+```
+Ok, now you a container image in your container registry. Let's use this image to deploy it to Cloud Run
+```bash
+gcloud run deploy --image gcr.io/PROJECT_ID/my-app --platform managed
+
+```
+Now go to your Google Cloud Console and under Cloud Run, you will see a service called "my-app".
+
